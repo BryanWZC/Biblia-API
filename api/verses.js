@@ -6,14 +6,16 @@
  */
 function getDefinedVerses(query, chapters) {
     try {
-    return chapters.content.map(chapterObj => {
-        const chapter = chapterObj.chapter;
-        const verses = chapterObj.verses;
-        if (chapter === cStart && chapter === cEnd) return filterVerses({ chapter, verses, vStart, vEnd});
-        if (chapter === cStart) return filterVerses({ chapter, verses, vStart});
-        if (chapter === cEnd) return filterVerses({ chapter, verses, vEnd });
-        return chapterObj;
-    });
+        const { cStart, vStart, cEnd, vEnd } = query; 
+        chapters.content = chapters.content.map(chapterObj => {
+            const chapter = chapterObj.chapter;
+            const verses = chapterObj.verses;
+            if (chapter === cStart && chapter === cEnd) return filterVerses({ chapter, verses, vStart, vEnd});
+            if (chapter === cStart) return filterVerses({ chapter, verses, vStart});
+            if (chapter === cEnd) return filterVerses({ chapter, verses, vEnd });
+            return chapterObj;
+        });
+        return chapters;
     } catch (error) {
         return {error: 'Input error. Please try again.'};
     }

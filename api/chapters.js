@@ -36,7 +36,7 @@ async function getChapters(query) {
         }
         return result;
     } catch (error) {
-        return error//{error: 'Input error. Please try again.'};
+        return {error: 'Input error. Please try again.'};
     }
 }
 
@@ -67,6 +67,7 @@ function getChapterVerses(verseObj) {
         let className = verseObj[i].parent.attribs.class;
         let id;
         if(className === 'wj') className = verseObj[i].parent.parent.attribs.class;
+        if(className === 'nd') className = verseObj[i].parent.parent.attribs.class;
         id = className.match(/v[\d]+/)[0];
         if(chapter[id]) chapter[id] = `${chapter[id]} ${verse}`;
         else chapter[id] = verse;
@@ -82,7 +83,7 @@ function getChapterVerses(verseObj) {
 async function getVerseObj(site){
     const res = await got(site);
     const $ = cheerio.load(res.body);
-    const verseObj = $('.chapter').find('.verse > .content, .wj > .content');
+    const verseObj = $('.chapter').find('.verse > .content, .wj > .content, .nd > .content');
     return verseObj;
 }
 

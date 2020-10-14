@@ -4,12 +4,31 @@
   "description": "a bible api that provides results based on bible version, book chapters and verses",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/server.js",
+    "build": "webpack --config ./webpack.config.js"
   },
   "author": "Bryan Wong",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "got": "^11.7.0"
+    "express": "^4.17.1",
+    "got": "^11.7.0",
+    "morgan": "^1.10.0",
+    "pdfkit": "^0.11.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.1.0",
+    "webpack-cli": "^4.0.0"
   }
 }
