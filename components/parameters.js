@@ -1,10 +1,24 @@
 import { versionDict, versionLongDict, books, bookNames, booksChapters } from './ref';
-import React from 'react';
+import React, { useState } from 'react';
 
-function BaseURL(){
+function Demo(){
+    const baseUrl = 'https://biblia-api-pdf.herokuapp.com/api?';
+    const [text, setText] = useState('');
+    const [result, setResult] = useState('');
     return(
-        <div className='base-url'>
-            <h3>GET  <code>https://www.xxx.com</code></h3>
+        <div className='demo'>
+            <div className='url'>
+                <h3>GET</h3>
+                <code>{baseUrl}</code>
+                <input type='text' id='example' name='example' value={text} onChange={(event) => setText(event.target.value)}></input>
+                <input type='submit' id='submit' name='submit' onClick={() => fetch(baseUrl + text, {mode: 'no-cors', credentials: 'same-origin'})
+                .then(res => res.json())
+                .then(res => setResult(res))
+                .catch(err => console.log(err))}></input>
+            </div>
+            <div className='results'>
+                <h4>{result}</h4>
+            </div>
         </div>
     );
 }
@@ -27,11 +41,6 @@ function Methods(){
                 <tr>
                     <td><code>bibleChapters</code></td>
                     <td>Produces a JSON result of filtered chapters based on query parameters.</td>
-                    <td>version, book, chapter(cStart, cEnd)</td>
-                </tr>
-                <tr>
-                    <td><code>bibleChaptersTXT</code></td>
-                    <td>Downloads a text file filled with results from the bible query.</td>
                     <td>version, book, chapter(cStart, cEnd)</td>
                 </tr>
                 <tr>
@@ -111,4 +120,4 @@ function VerseCode(){
     );
 }
 
-export { BaseURL, Methods, BibleCode, BookCode, ChapterCode, VerseCode };
+export { Demo, Methods, BibleCode, BookCode, ChapterCode, VerseCode };

@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const morgan = require('morgan');
 const PDFDocument = require('pdfkit');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
@@ -11,17 +12,19 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 const {
     bible,
-    bibleChapters,
-    bibleChaptersTXT,
+    bibleChapters
 } = require('../api/main');
 const { convertToPDF } = require('../api/pdf')
 const { configQuery } = require('../api/query');
 
+// Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static('assets'));
+app.use(cors());
 
+// Express routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
@@ -38,7 +41,6 @@ app.get('/api', async (req, res) => {
     if(method === 'bible') result = await bible(query);
     if(method === 'bibleChapters') result = await bibleChapters(query);
     if(method === 'bible' || method === 'bibleChapters') res.json(result);
-
     if(method === 'biblePDF'){
         const fileName = `bible-${Date.now()}.pdf`;
         const doc = new PDFDocument();
@@ -65,5 +67,5 @@ app.get('/api', async (req, res) => {
 });
 
 app.listen(port, () =>{
-    console.log('server started');
+    console.log(`server ready on ${port}`);
 });

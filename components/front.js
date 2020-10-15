@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseURL, Methods, BibleCode, BookCode, ChapterCode, VerseCode } from './parameters';
+import { Demo, Methods, BibleCode, BookCode, ChapterCode, VerseCode } from './parameters';
 
 function FrontPage(){
     return(
@@ -26,7 +26,7 @@ function Heading(){
 function Details(){
     return(
         <div className='details'>
-                <BaseURL />
+                <Demo />
             <h3 className='example-heading'>Example:</h3>
                 <Example />
             <h3 className='input-heading'>Input Parameters:</h3>

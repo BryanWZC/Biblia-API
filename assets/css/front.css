@@ -31,14 +31,45 @@
     padding-bottom: 24px;
 }
 
-/* Base url component */
-.details .base-url {
+/* Demo component */
+.details .demo {
     padding-bottom: 104px;
 }
 
-.base-url > h3 {
+.demo > .url {
+    display: flex;
     padding-bottom: 16px;
+    font-size: inherit;
 }
+
+.demo > .url > h3 {
+    padding-right: 8px;
+}
+
+.demo code {
+    border-radius: 5px 0 0 5px;
+}
+
+.demo input[type="text" i] {
+    background-color: #808F87;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    font-size: inherit;
+    padding-left: 2px;
+}
+
+.demo input[type="submit" i]{
+    margin-left: 16px;
+    padding: 0 12px;
+    border-radius: 5px;
+    border: solid 1px #333333;
+}
+
+.demo input[type="submit" i]:hover{
+    cursor: pointer;
+}
+
 
 /* Example component */
 .example h5 {
