@@ -14,7 +14,7 @@ function Heading(){
     return(
         <div className='heading'>
             <h1 className='heading-title'>
-                Bible API and PDF converter
+                Biblia API and PDF converter
             </h1>
             <p className='heading-desc'>
                 <strong>Description:</strong> A bible API that returns search results of verses in JSON format based on search parameters given. Also, the results can be extracted onto a PDF, to be downloaded and saved.
