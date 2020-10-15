@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khula&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: #333333;
+    font-family: 'Khula', sans-serif;
+}
+
+code {
+    font-family: 'Fira Mono', monospace;
+    background-color: #233659;
+    color: #ffffff;
+    padding: 2px 5px;
+    tab-size: 5px;
+    border-radius: 4px;
 }

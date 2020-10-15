@@ -43,7 +43,7 @@ async function getChapters(query) {
 /**
  * Get the website from which to web scrape from based on query parameters and current chapter
  * @param  {Object}  query      - Contains query parameters set such as version and bk (book of the bible) 
- * @param  {Integer} chapter    - Current chapter of the book
+ * @param  {String} chapter     - Current chapter of the book
  * @return {String}             - Url to the website from which web scrapping occurs
  */
 function getSite(query, chapter){
@@ -90,8 +90,8 @@ async function getVerseObj(site){
 /**
  * Checks chapter input logic to see if it is iterable and within the bounds of the total number of chapters within a given book
  * @param  {String}  book   - The book code. For example, 'GEN' for Genesis 
- * @param  {Integer} cStart - Starting book chapter 
- * @param  {Integer} cEnd   - Ending book chapter 
+ * @param  {String} cStart  - Starting book chapter 
+ * @param  {String} cEnd    - Ending book chapter 
  * @return {Boolean}        - Returns true if logic is correct
  */
 function checkChapLogic(book, cStart, cEnd){

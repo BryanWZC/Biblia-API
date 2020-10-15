@@ -26,8 +26,9 @@ async function streamBook(book, fileName){
     const readable = Readable.from([book.toString()]);
     await pipeline(
         readable,
-        fs.createWriteStream(fileName, { flags: 'a' })
+        fs.createWriteStream(path.join(__dirname,`../downloads/${fileName}`), { flags: 'a' })
     );
+    
 }
 
 module.exports = {

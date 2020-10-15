@@ -1,10 +1,18 @@
 import { versionDict, versionLongDict, books, bookNames, booksChapters } from './ref';
 import React from 'react';
 
+function BaseURL(){
+    return(
+        <div className='base-url'>
+            <h3>GET  <code>https://www.xxx.com</code></h3>
+        </div>
+    );
+}
+
 function Methods(){
     return(
-        <React.Fragment>
-            <h4><code>method</code>&nbsp;&nbsp;Different query methods</h4>
+        <div className='methods'>
+            <h4><code>method</code>  Different query methods</h4>
             <table className='bible-versions-table'>
                 <tr>
                     <th>Method</th>
@@ -32,7 +40,7 @@ function Methods(){
                     <td>version, book-index(bkStart, bkEnd), chapter(cStart, cEnd)</td>
                 </tr>
             </table>
-        </React.Fragment>
+        </div>
     );
 }
 
@@ -41,13 +49,13 @@ function BibleCode(){
     const keys = Object.keys(versions);
     const versionArr = keys.map(key => {
         return( <tr>
-                    <td>{key}</td>
+                    <td><code>{key}</code></td>
                     <td>{versionLongDict[key]}</td>
                 </tr>
         );
     });
     return(
-        <React.Fragment>
+        <div className='bible-code'>
             <h4><code>version</code>&nbsp;&nbsp;Bible version</h4>
             <table className='bible-versions-table'>
                 <tr>
@@ -56,23 +64,23 @@ function BibleCode(){
                 </tr>
                 {versionArr}
             </table>
-        </React.Fragment>
+        </div>
     );
 }
 
 function BookCode(){
     const bookArr = books.map((code, index)=> {
         return( <tr>
-                    <td>{index}</td>
-                    <td>{code}</td>
+                    <td><code>{index}</code></td>
+                    <td><code>{code}</code></td>
                     <td>{bookNames[index]}</td>
                 </tr>
         );
     });
     return(
-        <React.Fragment>
-            <h4><code>book-index</code>&nbsp;&nbsp;Bible book index</h4>
-            <h4><code>book</code>&nbsp;&nbsp;Bible book</h4>
+        <div className='book-code'>
+            <h4><code>book-index</code>  Bible book index - (2) "comma" separated inputs needed for start and end</h4>
+            <h4><code>book</code>  Bible book code</h4>
             <table className='bible-book-table'>
                 <tr>
                     <th>Book index</th>
@@ -81,52 +89,26 @@ function BookCode(){
                 </tr>
                 {bookArr}
             </table>
-        </React.Fragment>
+        </div>
     );
 }
 
 function ChapterCode(){
     return(
-        <React.Fragment>
-            <h4><code>chapter</code>&nbsp;&nbsp;Chapter parameters</h4>
-            <table className='bible-chapter-table'>
-                <tr>
-                    <th>Chapter parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td><code>cStart</code></td>
-                    <td>start of the chapter</td>
-                </tr>
-                <tr>
-                    <td><code>cEnd</code></td>
-                    <td>end of the chapter(inclusive)</td>
-                </tr>
-            </table>
-        </React.Fragment>
+        <div className='chapter-code'>
+            <h4><code>cStart</code>  start of the chapter</h4>
+            <h4><code>cEnd</code>  end of the chapter(inclusive)</h4>
+        </div>
     );
 }
 
 function VerseCode(){
     return(
-        <React.Fragment>
-            <h4><code>verse</code>&nbsp;&nbsp;Verse parameters</h4>
-            <table className='bible-verse-table'>
-                <tr>
-                    <th>Verse parameter</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td><code>vStart</code></td>
-                    <td>start of the verse</td>
-                </tr>
-                <tr>
-                    <td><code>vEnd</code></td>
-                    <td>end of the verse(inclusive)</td>
-                </tr>
-            </table>
-        </React.Fragment>
+        <div className='verse-code'>
+            <h4><code>vStart</code>  start of the verse</h4>
+            <h4><code>vEnd</code>  end of the verse(inclusive)</h4>
+        </div>
     );
 }
 
-export {Methods, BibleCode, BookCode, ChapterCode, VerseCode };
+export { BaseURL, Methods, BibleCode, BookCode, ChapterCode, VerseCode };

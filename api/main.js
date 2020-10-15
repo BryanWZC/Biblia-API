@@ -15,7 +15,6 @@ const fs = require('fs');
  */
 async function bible(query) {
     try {
-        const { version, bk, cStart, vStart, cEnd, vEnd } = query;
         const chapters = await getChapters(query);
         const verses = getDefinedVerses(query, chapters);
         return verses;
@@ -40,20 +39,25 @@ async function bibleChapters(query){
 
 /**
  * Produces a text file filled with results from the bible query. Defaults to bible.txt
- * @param  {Object} query - Query object to get chapters
+ * @param  {Object} query    - Query object to get chapters
+ * @param  {String} fileName - File name 
  * @return {Null} 
  */
-async function bibleChaptersTXT(query){
-    const { bkStart: start, bkEnd: end } = query;
-    const fileName = 'bible.txt';
-    
-    await clearTXT(fileName);
+async function bibleChaptersTXT(query, fileName){
+    try {
+        const { bkStart: start, bkEnd: end } = query;
+        
+        clearTXT(fileName);
+        console.log(__dirname);
 
-    for(let i = start; i < end + 1; i++){
-        const newQuery = configQuery({query, i, start, end});
-        const bookResults = await bibleChapters(newQuery);
-        bookResults.toString = bookResultStr;
-        await streamBook(bookResults, fileName);
+        for(let i = start; i < end + 1; i++){
+            const newQuery = configQuery({query, i, start, end});
+            const bookResults = await bibleChapters(newQuery);
+            bookResults.toString = bookResultStr;
+            await streamBook(bookResults, fileName);
+        }
+    } catch (error) {
+        return {error: 'Input error. Please try again.'};
     }
 }
 
@@ -63,16 +67,20 @@ async function bibleChaptersTXT(query){
  * @return {Null} 
  */
 async function biblePDF(query){
-    const { bkStart: start, bkEnd: end } = query;
-    const doc = new PDFDocument();
-    doc.pipe(fs.createWriteStream('bible.pdf'));
+    try {
+        const { bkStart: start, bkEnd: end } = query;
+        const doc = new PDFDocument();
+        doc.pipe(fs.createWriteStream('bible.pdf'));
 
-    for(let i = start; i < end + 1; i++){
-        const newQuery = configQuery({query, i, start, end});
-        const bookResults = await bibleChapters(newQuery);
-        await convertToPDF(bookResults, doc);
+        for(let i = start; i < end + 1; i++){
+            const newQuery = configQuery({query, i, start, end});
+            const bookResults = await bibleChapters(newQuery);
+            await convertToPDF(bookResults, doc);
+        }
+        doc.end();
+    } catch (error) {
+        return {error: 'Input error. Please try again.'};
     }
-    doc.end();
 }
 
 module.exports = {
@@ -82,10 +90,11 @@ module.exports = {
     biblePDF
 }
 
-biblePDF({
-    version: 'NIV',
-    bkStart: 0,
-    bkEnd: 1,
-    cStart: 45,
-    cEnd: 10
-}).then(res => res)
+// biblePDF({
+//     version: 'NIV',
+//     bk: 'GEN',
+//     cStart: 1,
+//     cEnd: 1,
+//     bkStart: 1,
+//     bkEnd: 1
+// }).then(res => console.log(res))

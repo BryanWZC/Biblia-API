@@ -1,0 +1,61 @@
+.front-page {
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading component */
+.heading {
+    padding: 32px 0 88px 0;
+} 
+
+.heading-title {
+    padding-bottom: 32px;
+}
+
+/* Details component */
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.details > div {
+    padding-bottom: 32px;
+}
+
+.details > h3 {
+    padding-bottom: 24px;
+}
+
+.details > div > h4 {
+    padding-bottom: 24px;
+}
+
+/* Base url component */
+.details .base-url {
+    padding-bottom: 104px;
+}
+
+.base-url > h3 {
+    padding-bottom: 16px;
+}
+
+/* Example component */
+.example h5 {
+    font-weight: normal;
+}
+
+/* general table formatting */
+.details > div > table{
+    padding-left: 32px;
+    border-spacing: 16px;
+}
+
+table code {
+    background-color: #808F87;
+}
+
+/* Chapter component */
+.details > div.chapter-code {
+    padding-bottom: 0;
+}
