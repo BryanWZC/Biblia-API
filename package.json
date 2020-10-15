@@ -1,7 +1,7 @@
 {
-  "name": "bible-api",
+  "name": "biblia-api-and-pdf-converter",
   "version": "1.0.0",
-  "description": "a bible api that provides results based on bible version, book chapters and verses",
+  "description": "A bible API that returns search results of verses in JSON format based on search parameters given. Also, the results can be extracted onto a PDF, to be downloaded and saved.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
