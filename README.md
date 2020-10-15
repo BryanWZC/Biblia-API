@@ -33,6 +33,7 @@ A bible API that returns search results of verses in JSON format based on search
 | `bible`         |           Produces a JSON with results from a search query.            | Chapters and verses are filtered.	version, book, chapter(cStart, cEnd), verse(vStart, vEnd) |
 | `bibleChapters` | Produces a JSON result of filtered chapters based on query parameters. |                            version, book, chapter(cStart, cEnd)                             |
 | `biblePDF`      |   Downloads a bible search results and properly format it as a PDF.    |                 version, book-index(bkStart, bkEnd), chapter(cStart, cEnd)                  |
+
 &nbsp;
 ### `version` - Bible version
 
@@ -54,6 +55,7 @@ A bible API that returns search results of verses in JSON format based on search
 |    ` TLAB `    |             Ang Biblia             |
 |    `DHH941`    |       Biblia Dios Habla Hoy        |
 |    `DB1885`    |        Diodati Bibbia 1885         |
+
 &nbsp;
 
 ### `bkStart` - Starting bible book index
@@ -127,6 +129,7 @@ A bible API that returns search results of verses in JSON format based on search
 |     `63`     |    `3JN`    |     3 John      |
 |     `64`     |    `JUD`    |      Jude       |
 |     `65`     |    `REV`    |   Revelation    |
+
 &nbsp;
 
 ### `cStart` - start of the chapter
