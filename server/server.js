@@ -41,6 +41,8 @@ app.get('/api', async (req, res) => {
         if(method === 'bible') result = await bible(query);
         if(method === 'bibleChapters') result = await bibleChapters(query);
         if(method === 'bible' || method === 'bibleChapters') res.json(result);
+
+        // Method from main.js in /api modified for serving file on heroku
         if(method === 'biblePDF'){
             const fileName = `bible-${Date.now()}.pdf`;
             res.attachment(fileName);

@@ -10,7 +10,7 @@ function Demo(){
             <div className='url'>
                 <h3>GET</h3>
                 <code>{baseUrl}</code>
-                <input type='text' id='example' name='example' value={text} onChange={(event) => setText(event.target.value)}></input>
+                <input type='text' id='example' name='example' value={text} placeholder='Try querying here...' onChange={(event) => setText(event.target.value)}></input>
                 <input type='submit' id='submit' name='submit' onClick={() => {
                     const url = baseUrl + text;
                     if(url.includes('biblePDF')) window.location.replace(url);
@@ -34,28 +34,30 @@ function Methods(){
     return(
         <div className='methods'>
             <h4><code>method</code>  Different query methods</h4>
-            <table className='bible-versions-table'>
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                    <th>Parameters required</th>
-                </tr>
-                <tr>
-                    <td><code>bible</code></td>
-                    <td>Produces a JSON with results from a search query. Chapters and verses are filtered.</td>
-                    <td>version, book, chapter(cStart, cEnd), verse(vStart, vEnd)</td>
-                </tr>
-                <tr>
-                    <td><code>bibleChapters</code></td>
-                    <td>Produces a JSON result of filtered chapters based on query parameters.</td>
-                    <td>version, book, chapter(cStart, cEnd)</td>
-                </tr>
-                <tr>
-                    <td><code>biblePDF</code></td>
-                    <td>Downloads a bible search results and properly format it as a PDF.</td>
-                    <td>version, book-index(bkStart, bkEnd), chapter(cStart, cEnd)</td>
-                </tr>
-            </table>
+            <div className='methods-table-wrapper'>
+                <table className='methods-table'>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Parameters required</th>
+                    </tr>
+                    <tr>
+                        <td><code>bible</code></td>
+                        <td>Produces a JSON with results from a search query. Chapters and verses are filtered.</td>
+                        <td>version, book, chapter(cStart, cEnd), verse(vStart, vEnd)</td>
+                    </tr>
+                    <tr>
+                        <td><code>bibleChapters</code></td>
+                        <td>Produces a JSON result of filtered chapters based on query parameters.</td>
+                        <td>version, book, chapter(cStart, cEnd)</td>
+                    </tr>
+                    <tr>
+                        <td><code>biblePDF</code></td>
+                        <td>Downloads a bible search results and properly format it as a PDF.</td>
+                        <td>version, book-index(bkStart, bkEnd), chapter(cStart, cEnd)</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     );
 }

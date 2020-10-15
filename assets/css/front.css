@@ -1,5 +1,5 @@
 .front-page {
-    padding: 0 3rem;
+    padding: 0 48px;
     display: flex;
     flex-direction: column;
 }
@@ -20,7 +20,7 @@
 }
 
 .details > div {
-    padding-bottom: 32px;
+    margin-bottom: 32px;
 }
 
 .details > h3 {
@@ -38,8 +38,11 @@
 
 .demo > .url {
     display: flex;
-    padding-bottom: 24px;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
     font-size: inherit;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .demo > .url > h3 {
@@ -48,6 +51,7 @@
 
 .demo code {
     border-radius: 5px 0 0 5px;
+    line-height: 1.4em;
 }
 
 .demo input[type="text" i] {
@@ -57,6 +61,10 @@
     border-radius: 0 5px 5px 0;
     font-size: inherit;
     padding-left: 2px;
+}
+
+.demo input[type="text" i]::placeholder {
+    color: #DEDEDE;
 }
 
 .demo input[type="submit" i]{
@@ -80,6 +88,7 @@
     height: 180px;
     border: none;
     border-radius: 5px;
+    overflow-x: auto;
 }
 
 .demo .results > h4 pre{
@@ -89,19 +98,115 @@
 /* Example component */
 .example h5 {
     font-weight: normal;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding-bottom: 12px;
 }
 
 /* general table formatting */
-.details > div > table{
-    padding-left: 32px;
+.details table{
+    margin-left: 32px;
     border-spacing: 16px;
+}
+
+.details .methods-table {
+    margin-left: 0;
+}
+
+.details .methods-table-wrapper {
+    margin-left: 32px;
 }
 
 table code {
     background-color: #808F87;
 }
 
+.methods-table {
+    min-width: 815px;
+}
+
+.methods-table-wrapper {
+    overflow-x: auto;
+}
+
 /* Chapter component */
 .details > div.chapter-code {
     padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #C1C8C4; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+@media only screen and (max-width: 750px) {
+    .heading-title {
+        font-size: 1.3em;
+    }
+    p {
+        font-size: 0.8em;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    h4 {
+        font-size: 0.8em;
+    }
+
+    code {
+        font-size: 0.7em;
+    }
+
+    table {
+        font-size: 0.7em;
+    }
+
+    .details table{
+        margin-left: 20px;
+        border-spacing: 12px;
+    }
+    
+    .details .methods-table-wrapper {
+        margin-left: 20px;
+    }
+
+    .details > div {
+        margin-bottom: 20px;
+    }
+    
+    .details > h3 {
+        padding-bottom: 18px;
+    }
+    
+    .details > div > h4 {
+        padding-bottom: 18px;
+    }
+
+    .demo input[type="text" i] {
+        font-size: 0.7em;
+    }
+
+    ::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+    }
 }
