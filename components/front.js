@@ -40,9 +40,10 @@ function Details(){
 }
 
 function Example(){
+    const baseUrl = 'https://biblia-api-pdf.herokuapp.com/api?';
     return(
         <div className='example'>
-            <h5>https://www.XXX.xom?<code>method</code>=bible&<code>version</code>=NIV&<code>book</code>=GEN&<code>cStart</code>=1&<code>cEnd</code>=1&<code>vStart</code>=1&<code>vEnd</code>=1</h5>
+            <h5>{baseUrl}<code>method</code>=bible&<code>version</code>=NIV&<code>book</code>=GEN&<code>cStart</code>=1&<code>cEnd</code>=1&<code>vStart</code>=1&<code>vEnd</code>=1</h5>
         </div>
     );
 }

@@ -33,12 +33,12 @@
 
 /* Demo component */
 .details .demo {
-    padding-bottom: 104px;
+    padding-bottom: 88px;
 }
 
 .demo > .url {
     display: flex;
-    padding-bottom: 16px;
+    padding-bottom: 24px;
     font-size: inherit;
 }
 
@@ -70,6 +70,21 @@
     cursor: pointer;
 }
 
+.demo .results-title {
+    padding-bottom: 8px;
+}
+
+.demo .results {
+    background-color: #233659;
+    overflow-y: auto;
+    height: 180px;
+    border: none;
+    border-radius: 5px;
+}
+
+.demo .results > h4 pre{
+    color: white;
+}
 
 /* Example component */
 .example h5 {

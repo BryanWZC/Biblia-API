@@ -89,12 +89,3 @@ module.exports = {
     bibleChaptersTXT,
     biblePDF
 }
-
-// biblePDF({
-//     version: 'NIV',
-//     bk: 'GEN',
-//     cStart: 1,
-//     cEnd: 1,
-//     bkStart: 1,
-//     bkEnd: 1
-// }).then(res => console.log(res))

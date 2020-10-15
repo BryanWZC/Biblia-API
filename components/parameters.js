@@ -11,13 +11,20 @@ function Demo(){
                 <h3>GET</h3>
                 <code>{baseUrl}</code>
                 <input type='text' id='example' name='example' value={text} onChange={(event) => setText(event.target.value)}></input>
-                <input type='submit' id='submit' name='submit' onClick={() => fetch(baseUrl + text, {mode: 'no-cors', credentials: 'same-origin'})
-                .then(res => res.json())
-                .then(res => setResult(res))
-                .catch(err => console.log(err))}></input>
+                <input type='submit' id='submit' name='submit' onClick={() => {
+                    const url = baseUrl + text;
+                    if(url.includes('biblePDF')) window.location.replace(url);
+                    else fetch(url)
+                            .then(res => res.json())
+                            .then(res => setResult(JSON.stringify(res, null, 2)))
+                            .catch(err => setResult('{"error": "Input error. Please try again."}'));
+                }}></input>
+            </div>
+            <div className='results-title'>
+                <h4>Results:</h4>
             </div>
             <div className='results'>
-                <h4>{result}</h4>
+                <h4><pre>{result}</pre></h4>
             </div>
         </div>
     );
@@ -88,7 +95,8 @@ function BookCode(){
     });
     return(
         <div className='book-code'>
-            <h4><code>book-index</code>  Bible book index - (2) "comma" separated inputs needed for start and end</h4>
+            <h4><code>bkStart</code>  Starting bible book index</h4>
+            <h4><code>bkEnd</code>  Ending bible book index(inclusive)</h4>
             <h4><code>book</code>  Bible book code</h4>
             <table className='bible-book-table'>
                 <tr>
