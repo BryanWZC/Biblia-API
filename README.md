@@ -132,7 +132,7 @@ A bible API that returns search results of verses in JSON format based on search
 
 &nbsp;
 
-### `cStart` - start of the chapter
-### `cEnd` - end of the chapter(inclusive)
-### `vStart` - start of the verse
-### `vEnd` - end of the verse(inclusive)
+### `cStart` - starting chapter
+### `cEnd` - ending chapter(inclusive)
+### `vStart` - starting verse
+### `vEnd` - ending verse(inclusive)

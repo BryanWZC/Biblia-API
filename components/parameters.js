@@ -115,8 +115,8 @@ function BookCode(){
 function ChapterCode(){
     return(
         <div className='chapter-code'>
-            <h4><code>cStart</code>  start of the chapter</h4>
-            <h4><code>cEnd</code>  end of the chapter(inclusive)</h4>
+            <h4><code>cStart</code>  starting chapter</h4>
+            <h4><code>cEnd</code>  ending chapter(inclusive)</h4>
         </div>
     );
 }
@@ -124,8 +124,8 @@ function ChapterCode(){
 function VerseCode(){
     return(
         <div className='verse-code'>
-            <h4><code>vStart</code>  start of the verse</h4>
-            <h4><code>vEnd</code>  end of the verse(inclusive)</h4>
+            <h4><code>vStart</code>  starting verse</h4>
+            <h4><code>vEnd</code>  ending verse(inclusive)</h4>
         </div>
     );
 }
