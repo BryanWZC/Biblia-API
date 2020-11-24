@@ -2,7 +2,7 @@ import { versionDict, versionLongDict, books, bookNames, booksChapters } from '.
 import React, { useState } from 'react';
 
 function Demo(){
-    const baseUrl = 'https://biblia-api-pdf.herokuapp.com/api?';
+    const baseUrl = 'https://biblia.bryanwong.tech/api?';
     const [text, setText] = useState('');
     const [result, setResult] = useState('');
     return(
