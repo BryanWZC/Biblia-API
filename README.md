@@ -1,7 +1,7 @@
 # Biblia API and PDF converter
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://biblia.bryanwong.tech)
-&nbsp;
+<!--[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://biblia.bryanwong.tech)
+&nbsp;-->
 
 A bible API that returns search results of verses in JSON format based on search parameters given. Also, the results can be extracted onto a PDF, to be downloaded and saved.
 
